@@ -1,0 +1,14 @@
+cff-version: 1.2.0
+message: "If you use theme-toolkit in your work, please cite it as below."
+title: "theme-toolkit"
+abstract: "theme-toolkit application."
+type: software
+authors:
+  - name: "theme-toolkit contributors"
+
+license: MIT
+version: "0.1.0"
+date-released: "2026-10-19"
+keywords:
+  - "theme-toolkit"
+  - "tauri-desktop"

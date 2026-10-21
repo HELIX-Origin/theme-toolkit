@@ -4,7 +4,7 @@ version = "0.1.0-alpha"
 description = "Cross-platform desktop theme authoring and packaging studio (Windows, macOS, Linux)"
 edition = "2021"
 authors = ["HELIX Origin"]
-license = "BSD-3-Clause"
+license = "MIT"
 
 [lib]
 name = "theme_toolkit_lib"
