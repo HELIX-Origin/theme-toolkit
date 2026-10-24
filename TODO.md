@@ -1,82 +1,63 @@
-# theme-toolkit — Task Checklist & Workstream Tracking
+# theme-toolkit — Task Checklist & Workstream Tracking (Theme Studio)
 
-> 📋 **Living Source of Truth**: Actionable task ledger for **theme-toolkit**.
+> 📋 **Living Source of Truth**: Actionable task ledger for **theme-toolkit** (**Theme Studio**).
 > Statuses: ⬜ backlog · 🚧 in progress · ✅ done (tracked as `- [ ]` and `- [x]` checkboxes).
 > High-level direction lives in [`ROADMAP.md`](./ROADMAP.md), active sprints in [`PLAN.md`](./PLAN.md), issues in [`BUGS.md`](./BUGS.md).
-
-> [!IMPORTANT]
-> AI agents are strictly required to update this page and related tracking ledgers **before** executing new feature work or bug fixes and keep them synchronized.
 
 ---
 
 ## 📜 Tracking Rules
 
-- **No Typo Duplication**: When recording user reports, clean and fix all typos to preserve professional quality.
-- **Consistent Formatting**: Maintain consistent formatting and style throughout all documentation to ensure readability and professionalism.
-- **Clear Sectioning**: Use clear and descriptive headers for each section to improve navigation and readability.
-- **Active Items First**: The currently active milestone, sprint, task, or workstream must always be placed at the top of the content sections.
-- **Regular Updates**: Ensure that this file is regularly updated to reflect the latest developments and changes in the project.
-- **Improve & Categorize User Directives**: Rewrite user directives into clean, self-contained engineering requirements grouped by domain sub-headers (e.g., **Architecture & Plugins**, **UI & Icons**, **Data & Cache**) so it is immediately clear what goes to what. Never dump raw chronological chat quotes or leave contradictory superseded statements.
-- **100% Active Direction Accuracy**: Whenever a requirement pivots or supersedes an earlier decision, replace the superseded directive in place across `ROADMAP.md`, `PLAN.md`, `TODO.md`, and `BUGS.md`.
-- **Same-Change Updates**: When a task changes behavior or scope, update this file **in the same change**.
-- **Done Moves Down**: When a workstream is done, check it off and archive detailed checklists to `.github/TODO-ARCHIVE.md`, leaving a concise single-line summary under Completed Workstreams.
-- **Explicit Project Tagging**: In multi-project or organization tracking ledgers, every workstream header, checklist group, and individual checkbox item MUST be explicitly prefixed with its project name and repository path (e.g., `[theme-toolkit] (theme-toolkit)` or `- [ ] [theme-toolkit] ...`) to prevent agent context confusion.
-- **Tracking Docs Stay True**: Update `ROADMAP.md`, `TODO.md`, `BUGS.md`, and `PLAN.md` first or in lockstep with code changes.
-- **Always Track Everything**: Every new feature request, enhancement, or bug report must be logged before execution.
+- **100% Active Direction Accuracy**: Task items and checklists must reflect the current state of Theme Studio with zero contradictions.
+- **Normalized Directives**: Rewrite user directives into clean, self-contained engineering requirements.
+- **Done Moves Down**: Completed items are marked with `- [x]` and collapsed to minimal one-line entries under completed workstreams.
+- **Zero-Warning Gate**: All builds and tests must pass with 0 errors and 0 warnings under MSVC `/W4 /WX`.
 
 ---
 
 ## 🔥 Active Workstreams
 
-### [theme-toolkit] Workstream W.01: Theme Studio Core Features
+### 🎯 [theme-toolkit] Workstream W.01: Native Windows C++ Architecture & Rebrand to Theme Studio (v1.0.0)
 - **Project Identifier:** `[theme-toolkit]`
-- **Repository Path:** `theme-toolkit`
-- **Target Component:** Core Architecture
+- **Repository Path:** `projects/theme-toolkit`
+- **Status:** 🚧 In progress. Abandon Tauri v2 rewrite; rebrand to Theme Studio; pivot to pure native C++ Windows desktop app supporting Windows 2000 to Windows 11+.
+- **Target Component:** Native C++ Core & Direct2D Win32 UI
 
 **Locked user directives (normalized by domain):**
-- **Packaging:** Makecab & DDF Packaging Engine - Rust engine generating Diamond Directive Files (`.ddf`) and executing `makecab.exe`.
-- **Sound:** Sound Scheme Manager - Win32 Sound Event mapping and `.wav` audio preview / bundling.
-- **Wallpaper:** Wallpaper & Slideshow Studio - desktop background viewport, slideshow interval / shuffle controls, alignment settings.
-- **Cursor:** Cursor Scheme Inspector - 15 standard Win32 cursor role configuration with `.ani` and `.cur` frame previews.
-- **Visual Style:** Color & Visual Style Editor - real-time DWM accent colorization and dark/light system mode toggles.
-- **macOS:** macOS Native Tooling (`macos.rs`) - Dynamic Desktop timed/solar HEIC wallpaper generator, system alert `.soundpack` archiver, cursor bundle packager.
-- **Linux:** Linux Native Tooling (`linux.rs`) - FreeDesktop Sound Theme audio packager, XDG cursor and icon theme packager, desktop background XML generator (GNOME, KDE Plasma, XFCE, Cinnamon).
-- **UI:** Frontend Studio UI - interactive previews (wallpaper viewport, audio player, animated cursor canvas, real-time color pickers).
+- **Rebrand to Theme Studio**: The application is officially rebranded to **Theme Studio** as part of its native C++ rewrite.
+- **Universal Windows Version Spectrum**: Support everything from **Windows 2000 all the way to Windows 11+**:
+  - Legacy Windows 2000 / XP: Classic `.theme` files, SysColors, metrics, and visual style pointers.
+  - Windows Vista / 7: Aero glass parameters, `.themepack` archives, desktop slideshows, custom sounds.
+  - Windows 8 / 8.1: Flat accent colorization, modern `.deskthemepack` CAB packaging.
+  - Windows 10 / 11+: Modern `.deskthemepack`, dark/light theme switching, accent palette harmonies, and Mica/Acrylic backdrop awareness.
+- **Abandon Tauri Rewrite**: Cease development on the Tauri v2 / Rust / SvelteKit stack.
+- **Pure Windows Desktop**: Focus 100% on native Windows desktop execution; drop macOS and Linux cross-platform scope entirely.
+- **Multi-Format Packager**: Support legacy `.theme`, Windows 7 `.themepack`, and Windows 8/10/11+ `.deskthemepack` via MSVC `makecab.exe` integration.
+- **Windows Sound Scheme Manager**: Win32 Sound Event mapping and `.wav` audio preview / bundling.
+- **Wallpaper & Slideshow Studio**: Desktop background viewport, slideshow interval / shuffle controls, alignment settings.
+- **Windows Cursor Scheme Inspector**: 15 standard Win32 cursor role configuration with `.ani` and `.cur` frame previews.
+- **Direct2D Studio Canvas**: Hardware-accelerated native Win32 UI with real-time theme previews.
 
 **Implementation checklist:**
-- [x] `[theme-toolkit]` **Core Tauri v2 Scaffolding** - Tauri v2 app with SvelteKit frontend and Rust backend.
-- [ ] `[theme-toolkit]` **Makecab & DDF Packaging Engine** - Rust engine generating `.ddf` and executing `makecab.exe`.
-- [ ] `[theme-toolkit]` **Sound Scheme Manager** - Win32 Sound Event mapping and `.wav` audio preview / bundling.
-- [ ] `[theme-toolkit]` **Wallpaper & Slideshow Studio** - desktop background viewport, slideshow interval / shuffle controls, alignment settings.
-- [ ] `[theme-toolkit]` **Cursor Scheme Inspector** - 15 standard Win32 cursor role configuration with `.ani` and `.cur` frame previews.
-- [ ] `[theme-toolkit]` **Color & Visual Style Editor** - real-time DWM accent colorization and dark/light system mode toggles.
-- [ ] `[theme-toolkit]` **macOS Native Tooling (`macos.rs`)** - Dynamic Desktop HEIC generator, `.soundpack` archiver, cursor bundle packager.
-- [ ] `[theme-toolkit]` **Linux Native Tooling (`linux.rs`)** - FreeDesktop Sound Theme packager, XDG cursor/icon packager, desktop background XML generator.
-- [ ] `[theme-toolkit]` **Frontend Studio UI** - interactive previews (wallpaper viewport, audio player, animated cursor canvas, color pickers).
-- [ ] `[theme-toolkit]` **Validation & Verification** - run project quality gate with zero warnings.
+- [ ] **[theme-toolkit] 1. Native C++ Win32 Project Scaffold**:
+  - [ ] `[theme-toolkit]` Author native CMake build configuration with MSVC `/W4 /WX` C++20 standard.
+  - [ ] `[theme-toolkit]` Build main Win32 application window with Windows 11 dark mode frame.
+  - [ ] `[theme-toolkit]` Implement hardware-accelerated Direct2D / DirectWrite studio canvas.
+- [ ] **[theme-toolkit] 2. Multi-Version Windows Theme Engine (Win 2000 → 11+)**:
+  - [ ] `[theme-toolkit]` Implement legacy Windows 2000/XP `.theme` generator with SysColors and metric mappings.
+  - [ ] `[theme-toolkit]` Implement Windows Vista/7 Aero `.themepack` generator with glass parameters and slideshows.
+  - [ ] `[theme-toolkit]` Implement Windows 8/10/11+ `.deskthemepack` packager generating `.ddf` and invoking `makecab.exe`.
+  - [ ] `[theme-toolkit]` Implement Win32 Sound Scheme `.wav` mapper and packer.
+  - [ ] `[theme-toolkit]` Implement Win32 Cursor Scheme (`.cur` / `.ani`) validator and packer.
+- [ ] **[theme-toolkit] 3. Native Studio UI & Preview Canvas**:
+  - [ ] `[theme-toolkit]` Real-time interactive theme preview canvas supporting simulated preview in Win2K, Win7 Aero, and Win11 styles.
+  - [ ] `[theme-toolkit]` Color picker and contrast accessibility evaluator.
+- [ ] **[theme-toolkit] 4. Quality Gate & Packaging**:
+  - [ ] `[theme-toolkit]` Verify 0 compiler warnings under MSVC `/W4 /WX`.
+  - [ ] `[theme-toolkit]` Verify generated theme archives apply cleanly across target Windows versions.
 
 ---
 
-## ⬜ Backlog / Candidate Tasks
+## ✅ Completed Workstreams
 
-- [ ] [theme-toolkit] **Theme Toolkit User Manuals** - Author user manuals for theme-toolkit authoring, previewing, and packaging workflows (in docs repo).
-- [ ] [theme-toolkit] **Theme Studio CI Deployment** - Create .github/workflows/ci.yml tailored for desktop theme applicator.
-
----
-
-## ✅ Completed Workstreams & Archive
-
-### ✅ [theme-toolkit] Workstream {{PREV_WORKSTREAM_ID}}: {{PREV_WORKSTREAM_TITLE}} ({{COMPLETED_DATE_OR_VERSION}})
-- **Project Identifier:** `[theme-toolkit]`
-- **Repository Path:** `theme-toolkit`
-
-- [x] `[theme-toolkit]` {{COMPLETED_TASK_1}}
-- [x] `[theme-toolkit]` {{COMPLETED_TASK_2}}
-- [x] `[theme-toolkit]` {{COMPLETED_TASK_3}}
-
----
-
-## 🔖 Metadata
-
-- **Project**: theme-toolkit
-- **Tracking Status**: {{STATUS_SUMMARY}}
+- _(Initial workstream in progress)_

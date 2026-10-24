@@ -1,58 +1,35 @@
-# HANDOFF.md — theme-toolkit Session Handoff
+# HANDOFF.md — theme-toolkit Session Handoff (Theme Studio)
 
-**Last updated:** 2026-10-19
-**Current session status:** Initialized · 0 open workstreams
-**Project:** theme-toolkit
-**Root:** theme-toolkit
+**Last updated:** 2026-10-23
+**Current session status:** W.01 active · Rebranded to Theme Studio · Supporting Windows 2000 to Windows 11+ · Pivot to Native C++ Windows Desktop Theme Studio (Tauri v2 abandoned; macOS/Linux scope dropped).
+**Project:** theme-toolkit (Theme Studio)
+**Root:** projects/theme-toolkit
 
-> Permanent, git-tracked session-state ledger. Maintained **incrementally** — refresh at every
-> workstream state change, fully rewrite at session end / soft-target posture. New session: read
-> this file right after `AGENTS.md`, migrate every item into `ROADMAP.md` / `PLAN.md` /
-> `TODO.md` / `BUGS.md`, then **refresh this file** (migrated-only state collapses to one-line
-> delivered notes). **Never delete it.** See `.agents/rules/session-handoff.md`.
-
-The session cycle every agent follows:
-
-```mermaid
-flowchart LR
-    read[Read handoff] --> migrate[Migrate into ledgers]
-    migrate --> work[Execute work]
-    work --> refresh[Refresh handoff]
-    refresh --> read
-```
+> Permanent, git-tracked session-state ledger for `theme-toolkit`. Maintained **incrementally** — refresh at every
+> workstream state change, fully rewrite at session end. New session: read this file right after `AGENTS.md`,
+> migrate every item into `ROADMAP.md` / `PLAN.md` / `TODO.md` / `BUGS.md`, then **refresh this file**.
+> **Never delete it.**
 
 ---
 
-## 1) <Workstream name — with project tag> (<status: In Progress | Blocked | Delivered>)
-- **State:** <one line: what is true right now>
-- **Delivered:** <concise bullets with exact file paths — completed work only>
+## 1) [theme-toolkit] W.01: Native Windows C++ Architecture & Rebrand to Theme Studio (Active, v1.0.0)
+- **State:** Active. Rebranded to **Theme Studio**. Abandoning Tauri v2 and dropping macOS/Linux cross-platform scope. Focused 100% on a pure native C++20 Win32 desktop application with Direct2D studio canvas for Windows theming with comprehensive support for **Windows 2000 all the way to Windows 11+**.
+- **Architectural Directives:**
+  - **Rebrand to Theme Studio:** Officially renamed as part of its native C++ rewrite.
+  - **Windows 2000 to Windows 11+ Support:** Multi-version theme engine supporting classic `.theme` (Win2K/XP), Aero `.themepack` (Vista/7), and modern `.deskthemepack` (Win 8/10/11+).
+  - **Abandon Tauri:** Cease all development on the Tauri v2 / Rust / SvelteKit stack.
+  - **Pure Windows Desktop:** Target Windows exclusively.
+  - **Native Multi-Format Packager:** Generates `.theme`, `.themepack`, and `.deskthemepack` archives via MSVC `makecab.exe` integration.
+  - **Hardware-Accelerated UI:** Direct2D studio canvas for real-time theme previews across Windows version profiles.
 - **Next tasks:**
-  - [ ] <exact next action — file path + what changes + acceptance criteria>
-  - [ ] <follow-up task>
-- **Ledgers:** `TODO.md` (<item id>), `PLAN.md` (<sprint/workstream id>) — update if missing
+  - [ ] Author native CMake build configuration with MSVC `/W4 /WX` C++20 standard.
+  - [ ] Implement main Win32 application window with Direct2D canvas and Windows 11 dark mode.
+  - [ ] Implement multi-version theme generator (`.theme`, `.themepack`, `.deskthemepack`).
+- **Ledgers:** `TODO.md` (W.01), `PLAN.md` (Sprint 1), `ROADMAP.md` (M1).
 
 ---
 
-## 2) <Next workstream — with project tag> (<status>)
-- **State:** …
-- **Delivered:** …
-- **Next tasks:**
-  - [ ] …
-- **Ledgers:** …
-
----
-
-## N) Shell / Tooling Notes
-- Non-interactive shell policy active (no pagers/editers, fail-fast); use OpenCode Read/Write/Edit for files.
-- <disabled tools, experimental flags, environment quirks — only what is NOT discoverable from the repo>
-
----
-
-## Quick Resume Checklist (New Session)
-1. Read `AGENTS.md`
-2. Read this file immediately, then `ROADMAP.md` → `PLAN.md` → `TODO.md` → `BUGS.md`
-3. Migrate this file's open items into the ledgers, then refresh it (never delete)
-4. Open <specific design/source files needed to continue>
-5. Resume at the first unchecked `TODO.md` item
-6. Run the context-pressure scoreboard at every checkpoint (`session-handoff.md`) — never wait
-   for the user to flag a limit
+## 2) Tooling & Quality Gate
+- **Compiler:** MSVC C++20 toolchain; `/W4 /WX` zero-warning invariant.
+- **Platform:** Windows exclusively (Windows 2000 through Windows 11+ compatibility).
+- **License:** MIT.

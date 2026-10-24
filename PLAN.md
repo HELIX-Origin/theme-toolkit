@@ -1,88 +1,51 @@
-# theme-toolkit — Active Sprint Planning
+# theme-toolkit — Active Sprint Planning (Theme Studio)
 
-> 🎯 **Living Source of Truth**: Active sprint roadmap, execution architecture, and completed sprint history for **theme-toolkit**.
+> 🎯 **Living Source of Truth**: Active sprint roadmap, execution architecture, and completed sprint history for **theme-toolkit** (**Theme Studio**).
 > Pair with [`ROADMAP.md`](./ROADMAP.md) (direction), [`TODO.md`](./TODO.md) (task ledger), and [`BUGS.md`](./BUGS.md) (known issues).
-
-> [!IMPORTANT]
-> AI agents are strictly required to update this page and related tracking ledgers **before** executing new feature work or bug fixes and keep them synchronized.
 
 ---
 
 ## 📜 Tracking Rules
 
-- **No Typo Duplication**: When recording user reports, clean and fix all typos to preserve professional quality.
-- **Consistent Formatting**: Maintain consistent formatting and style throughout all documentation to ensure readability and professionalism.
-- **Clear Sectioning**: Use clear and descriptive headers for each section to improve navigation and readability.
-- **Active Items First**: The currently active milestone, sprint, task, or workstream must always be placed at the top of the content sections.
-- **Active Sprints Only in Top Section**: `## 🎯 Active Sprints` must contain ONLY the currently active sprint(s). Once a sprint is completed, move it immediately to `## ✅ Completed Sprints` (newest first).
-- **Regular Updates**: Ensure that this file is regularly updated to reflect the latest developments and changes in the project.
-- **100% Active Direction Accuracy**: Continuously refine and synchronize sprint tasks with the current active direction of each project; immediately update or remove superseded tasks rather than leaving contradictory statements.
-- **Full History**: Every planned item from project history is represented under `## ✅ Completed Sprints`, newest first.
-- **Explicit Project Tagging**: In multi-project or organization tracking ledgers, every sprint header, task, and execution deliverable MUST be explicitly prefixed with its current project name and repository path (e.g., `[theme-toolkit] (theme-toolkit)`) to prevent agent context confusion.
-- **Tracking Docs Stay True**: Update `ROADMAP.md`, `TODO.md`, `BUGS.md`, and `PLAN.md` first or in lockstep with code changes.
-- **Always Track Everything**: Every new feature request, enhancement, or bug report must be logged before execution.
+- **100% Active Direction Accuracy**: Reflect the current, active direction of Theme Studio with zero contradictions.
+- **Active Sprints Only in Top Section**: `## 🎯 Active Sprints` contains only the currently active sprint. Completed sprints move immediately to `## ✅ Completed Sprints` (newest first).
+- **Mandatory Quality Gate**: Compilers and typecheckers must pass with zero errors and zero warnings (`MSVC /W4 /WX`).
 
 ---
 
 ## 🎯 Active Sprints
 
-### 🚀 Sprint 1: [theme-toolkit] (theme-toolkit) — Foundation & Initial Architecture
+### 🚀 Sprint 1: [theme-toolkit] — Native Windows C++ Architecture & Rebrand to Theme Studio (v1.0.0, W.01)
 - **Project Identifier:** `[theme-toolkit]`
-- **Repository Path:** `theme-toolkit`
-- **Target Objective:** Scaffold project structure, local agents, and tracking ledgers.
+- **Repository Path:** `projects/theme-toolkit`
+- **Target Objective:** Abandon the experimental Tauri v2 rewrite. Rebrand to **Theme Studio**. Scaffold and implement the native C++20 Win32 desktop theme studio targeting Windows exclusively, supporting every Windows release from **Windows 2000 up to Windows 11+**. Build the Direct2D theme editor and multi-format packager (`.theme`, `.themepack`, `.deskthemepack`).
 
 ```mermaid
 flowchart TD
-    Task1["[theme-toolkit] {{TASK_1_LABEL}}"] --> Task2["[theme-toolkit] {{TASK_2_LABEL}}"]
-    Task2 --> Task3["[theme-toolkit] {{TASK_3_LABEL}}"]
-    Task3 --> Gate["[theme-toolkit] Verification Gate"]
+    Task1["[theme-toolkit] Native C++ Win32 & Direct2D Studio Scaffold"] --> Task2["[theme-toolkit] Multi-Version Theme Schema (Win2K to 11+)"]
+    Task2 --> Task3["[theme-toolkit] Multi-Format Packager (.theme / .themepack / .deskthemepack)"]
+    Task3 --> Gate["[theme-toolkit] MSVC /W4 /WX Quality Gate"]
 ```
 
 #### 📝 Execution Tasks
 
-1. **[theme-toolkit] Initial Setup**:
-   - `[theme-toolkit]` Setup project configuration
-   - `[theme-toolkit]` Verify test and build gate
-2. **[theme-toolkit] {{TASK_2_NAME}}**:
-   - `[theme-toolkit]` {{SUBTASK_2_A}}
-   - `[theme-toolkit]` {{SUBTASK_2_B}}
-3. **[theme-toolkit] {{TASK_3_NAME}}**:
-   - `[theme-toolkit]` {{SUBTASK_3_A}}
-   - `[theme-toolkit]` {{SUBTASK_3_B}}
-
----
-
-## 🔮 Planned Sprints
-
-### ⏳ Sprint {{NEXT_SPRINT_ID}}: [theme-toolkit] (theme-toolkit) — {{NEXT_SPRINT_TITLE}}
-- **Project Identifier:** `[theme-toolkit]`
-- **Repository Path:** `theme-toolkit`
-- `[theme-toolkit]` {{CANDIDATE_ITEM_1}}
-- `[theme-toolkit]` {{CANDIDATE_ITEM_2}}
+1. **[theme-toolkit] Native C++ Win32 & Direct2D Studio**:
+   - `[theme-toolkit]` Establish native CMake / MSVC project structure targeting C++20 standard with `/W4 /WX`.
+   - `[theme-toolkit]` Implement hardware-accelerated Direct2D studio canvas and dark mode frame.
+2. **[theme-toolkit] Multi-Version Theme Schema & Token Engine (Win 2000 → 11+)**:
+   - `[theme-toolkit]` Support classic SysColors, metrics, and `.theme` formats for Windows 2000 / XP.
+   - `[theme-toolkit]` Support Aero parameters, colorization, and desktop slideshows for Windows Vista / 7.
+   - `[theme-toolkit]` Support modern accent palettes, dark/light modes, and Mica/Acrylic accents for Windows 10 / 11+.
+3. **[theme-toolkit] Multi-Format Packager Engine**:
+   - `[theme-toolkit]` Author legacy `.theme` generator.
+   - `[theme-toolkit]` Author Windows 7 `.themepack` packager via `makecab.exe`.
+   - `[theme-toolkit]` Author modern Windows 8/10/11+ `.deskthemepack` packager via `makecab.exe`.
+4. **[theme-toolkit] Quality Gate & Packaging**:
+   - `[theme-toolkit]` Enforce zero compiler warnings under MSVC `/W4 /WX`.
+   - `[theme-toolkit]` Verify generated theme archives apply cleanly across Windows targets.
 
 ---
 
 ## ✅ Completed Sprints
 
-### ✅ Sprint {{PREV_SPRINT_ID}}: [theme-toolkit] (theme-toolkit) — {{PREV_SPRINT_TITLE}} ({{COMPLETED_DATE_OR_VERSION}})
-- **Project Identifier:** `[theme-toolkit]`
-- **Repository Path:** `theme-toolkit`
-- ✅ `[theme-toolkit]` {{COMPLETED_ACTION_1}}
-- ✅ `[theme-toolkit]` {{COMPLETED_ACTION_2}}
-- ✅ **Verification**: {{VERIFICATION_OUTCOME}}
-
----
-
-## 🛠️ Verification Commands
-
-```powershell
-# Commands used to test and verify sprint changes
-{{VERIFICATION_COMMANDS}}
-```
-
----
-
-## 🔖 Metadata
-
-- **Project**: theme-toolkit
-- **Tracking Mode**: {{SEMVER_OR_MILESTONES}}
+- _(Initial sprint in progress)_
